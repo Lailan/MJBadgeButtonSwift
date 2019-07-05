@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         self.title = "MJBadgeButton"
         
-        let customButton = UIButton(type: UIButtonType.custom)
+        let customButton = UIButton(type: UIButton.ButtonType.custom)
         customButton.frame = CGRect(x: 0, y: 0, width: 35.0, height: 35.0)
         customButton.addTarget(self, action: #selector(self.onBagdeButtonClick), for: .touchUpInside)
         customButton.setImage(UIImage(named: "Cart"), for: .normal)
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func onBagdeButtonClick() {
+    @objc func onBagdeButtonClick() {
         print("button Clicked \(self.btnBarBadge.badgeValue)")
     }
     

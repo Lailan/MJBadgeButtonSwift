@@ -109,8 +109,17 @@ class MJBadgeBarButton: UIBarButtonItem {
         minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width
         
         let padding = self.badgePadding
-        self.badge.frame = CGRect(x: self.badgeOriginX, y: self.badgeOriginY, width: minWidth + padding, height: minHeight + padding)
-        self.badge.layer.cornerRadius = self.badge.frame.width / 2
+        let badgeValueInt:Int = Int(self.badgeValue) ?? 0
+        if badgeValueInt > 99 {
+            self.badge.frame = CGRect(x: self.badgeOriginX - 10, y: self.badgeOriginY, width: minWidth + padding + 10, height: minHeight + padding)
+            self.badge.layer.cornerRadius = 10
+            self.badge.text = "+99"
+        } else {
+            self.badge.frame = CGRect(x: self.badgeOriginX, y: self.badgeOriginY, width: minWidth + padding, height: minHeight + padding)
+            self.badge.layer.cornerRadius = self.badge.frame.width / 2
+        }
+        
+        
         self.badge.layer.masksToBounds = true
     }
     
